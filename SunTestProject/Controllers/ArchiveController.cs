@@ -1,5 +1,6 @@
 ﻿using Application.Services.ArchiveServices;
 using Application.Services.WeatherServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SunTestProject.Models;
 
@@ -13,12 +14,14 @@ namespace SunTestProject.Controllers
             _archiveService = archiveService;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult UploadWeatherArchive()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> UploadWeatherArchive(IFormFileCollection formFiles)
