@@ -1,0 +1,23 @@
+﻿@model SunTestProject.Models.ResultViewModel;
+
+<form asp-controller="Archive" asp-action="UploadWeatherArchive" enctype="multipart/form-data" method="post">
+   <label>Загрузка excel :</label> 
+   <input accept="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml" id="File1" multiple="multiple" name="formFiles" type="file" /> 
+   <input id="btnUpload" type="submit" value="Отправить" />
+</form>
+
+@if(Model is not null)
+{
+    @if(Model.IsSuccess)
+    {
+        <div class="alert alert-success" role="alert">
+            @Model.Message
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            @Model.Message
+        </div>
+    }    
+}

@@ -1,0 +1,39 @@
+﻿@model IndexViewModel;
+@{
+    ViewData["Title"] = "Home Page";
+}
+<form>
+    <select id="selectYear" onchange="setYear()" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+        <option value="0" selected>Выберите год</option>
+        @foreach(var item in Model.Years)
+        {
+            <option value="@item">@item</option>
+        }
+    </select>
+    <select id="selectMonth" onchange="setMonth()" class="form-select form-select-sm" aria-label=".form-select-sm example">
+        <option value="0" selected>Выберите месяц</option>
+        <option value="1">Январь</option>
+        <option value="2">Февраль</option>
+        <option value="3">Март</option>
+        <option value="4">Апрель</option>
+        <option value="5">Май</option>
+        <option value="6">Июнь</option>
+        <option value="7">Июль</option>
+        <option value="8">Август</option>
+        <option value="9">Сентябрь</option>
+        <option value="10">Октябрь</option>
+        <option value="11">Ноябрь</option>
+        <option value="12">Декабрь</option>
+    </select>
+</form>
+
+<div class="fetchTable">
+</div>
+
+<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+    <button onclick="prevPage()" type="button" class="btn btn-primary">Предыдущая</button>
+    <button onclick="nextPage()" type="button" class="btn btn-primary">Следующая</button>
+</div>
+
+<div class="text-center">
+</div>

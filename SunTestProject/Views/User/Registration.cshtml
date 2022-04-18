@@ -1,0 +1,23 @@
+﻿@model SunTestProject.Models.RegistrationViewModel;
+@{
+    ViewData["Title"] = "Registration";
+}
+<form asp-action="Registration">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password" class="control-label"></label>
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PasswordConfirm" class="control-label"></label>
+        <input asp-for="PasswordConfirm" class="form-control" />
+        <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
+    </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
