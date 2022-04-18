@@ -1,6 +1,6 @@
 # DynamicSunTestProject
  
-##Используемые технологии:
+## Используемые технологии:
 - EF core
 - .NET 6
 - ASP.NET Core
@@ -10,7 +10,7 @@
 - NPOI
 - MSSQL SERVER
 
-##Доступ к добавлению архивов через админ учетку
+## Доступ к добавлению архивов через админ учетку
 
 - Логин - Pudge.Momov@beercondition.com
 - Пароль - aNR#7ds*3X
