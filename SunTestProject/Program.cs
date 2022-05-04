@@ -5,8 +5,10 @@ using Application.Services.ExcelFileReaderService;
 using Application.Services.WeatherServices;
 using Domain.Users;
 using Infrastructure;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using SunTestProject.Extensions;
+using SunTestProject.GraphQL;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +28,11 @@ builder.Services.AddScoped<IExcelConverter, ExcelConverter>();
 builder.Services.AddScoped<IWeatherService, WeatherService>();
 builder.Services.AddScoped<IArchiveService, ArchiveService>();
 builder.Services.AddMapper();
+builder.Services
+    .AddGraphQLServer()
+    .AddQueryType<Queries>();
+
+
 
 var app = builder.Build();
 
@@ -55,5 +62,11 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapGraphQL("/graphql");
+});
 
 app.Run();
